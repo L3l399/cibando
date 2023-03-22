@@ -2,13 +2,14 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
 }
 
-.bg-dark, header {
+.rosso, header {
   background-color: #8e210b!important;
 }
 
@@ -22,3 +23,34 @@ nav {
 
 html, body { height: 100%; }
 
+.carousel-caption {
+  top: 27 rem;
+  bottom: auto;
+
+  h3{
+    font-family: 'Homemade Apple', cursive;
+    font-size: 40px;
+    text-shadow: black 2px, 2px, 3px;
+  }
+}
+
+.nav-icon{
+  color: white;
+  font-size:120%;
+}
+
+//da risolvere
+.no-image-carosello{
+  height: 50%;
+  width:max-content;
+
+}
+
+#contenitore-switch{
+  div{
+    height: center;
+  }
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
