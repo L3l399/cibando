@@ -1,0 +1,42 @@
+<ngb-carousel class="carosello" *ngIf="images.length > 1; else noSlide;" [interval]="3000">
+  <ng-template ngbSlide *ngFor="let image of images; let i = index">
+    <div class="picsum-img-wrapper">
+      <img [src]="percorso + image.id + '.jpg'" [alt]="image.label" class="img-fluid" />
+    </div>
+    <div class="carousel-caption">
+      <h3>{{image.label}}</h3>
+      immagine {{i +1}} di {{images.length}}
+       <h5  *ngIf="i + 1 == images.length">ultima immagine</h5>
+    </div>
+  </ng-template>
+</ngb-carousel>
+
+<ng-template #noSlide>
+  <div>
+    <img [src]="percorso + images[0].id + '.jpg'" [alt]="images[0].label" class="img-fluid" />
+  </div>
+</ng-template>
+
+<!-- <ng-template #immaginiFinite>
+  <p>
+    Nulla vitae elit libero, a pharetra augue mollis interdum.
+  </p>
+  <p>
+    ultima immagine
+  </p>
+</ng-template> -->
+
+<!-- <div *ngIf="images.length == 1">
+  <img [src]="percorso + images[0].id + '.jpg'" [alt]="images[0].label" class="img-fluid" />
+</div> -->
+<!--
+  <ng-template #noFoto>
+    <div>
+      <img src="https://picsum.photos/1000/300"  class="img-fluid no-image-carosello"/>
+    </div>
+  </ng-template> -->
+
+  <!-- da risolvere dimensione immagine-->
+  <div *ngIf="images.length == 0">
+    <img src="https://picsum.photos/1000/300"  class="img-fluid no-image-carosello"/>
+  </div>

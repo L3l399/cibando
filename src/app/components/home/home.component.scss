@@ -1,0 +1,21 @@
+.container-titolo{
+  h2{
+    font-size: 35;
+    color: $primary-color-1;
+    font-family: 'Homemade Apple', cursive;
+    margin-bottom: 30 px;
+    margin-left: 30 px;
+  }
+
+  .paragrafo {
+    font-size: 10px;
+  }
+}
+
+
+
+ .paragrafo{
+  text-align: justify;
+  color:  $primary-color-1;
+  //text: 30px;//
+ }

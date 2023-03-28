@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.css";
 
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "src/styles/colors.scss";
 
 
 body {
@@ -9,6 +10,11 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+h2{
+  font-size: 30px;
+  color: #8e210b;
+  font-family:'Montserrat', sans-serif;
+}
 .rosso, header {
   background-color: #8e210b!important;
 }
@@ -46,11 +52,11 @@ html, body { height: 100%; }
 
 }
 
-#contenitore-switch{
-  div{
-    height: center;
-  }
+.testoEvidenziato{
+  background-color: yellow;
+  width: 400px;
 }
+
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

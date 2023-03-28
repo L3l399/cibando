@@ -1,0 +1,15 @@
+<div class="card-container" id="#main-container" *ngFor="let recipe of recipes">
+  <div class="card">
+
+    <div class="card-image" [ngStyle]="{'background-image': 'url('+ recipe.image +')'}"></div>
+
+    <div class="card-body">
+      <h5 class="card-title">{{recipe.title}}</h5>
+      <p class="card-text">
+        <!-- {{recipe.description}} -->
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident necessitatibus, odit dolorum minus quas quisquam assumenda delectus nostrum consectetur architecto. Hic beatae odit est obcaecati officiis ipsum nam maxime! Consequatur?
+      </p>
+      <a routerLink="/detail/{{recipe._id}}" class="btn btn-primary">Visualizza</a>
+    </div>
+  </div>
+</div>

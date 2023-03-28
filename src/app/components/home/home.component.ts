@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class AppComponent {
-  title = 'cibando';
-
+export class HomeComponent {
 
   evidenziato = false;
   onEvidenziazione(){
@@ -15,4 +13,3 @@ export class AppComponent {
   }
 
 }
-
