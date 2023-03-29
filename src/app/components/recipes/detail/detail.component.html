@@ -1,15 +1,24 @@
-<div class="container-ricetta">
-  <div class="container-image">
-    <div class="ricetta-image" [ngStyle]="{'background-image': 'url('+ ricetta.image +')'}"></div>
-  </div>
-  <div class="container-descrizione">
-    <h2 class="titolo-ricetta">{{ricetta.title}}</h2>
-    <p>{{ricetta.description}}</p>
-  </div>
-  <div class="container-difficolta">
-    <p>Difficoltá: {{ricetta.difficulty}}</p>
-  </div>
-  <div>
-    data pubblicazione: {{ricetta.date}}
+<div *ngIf="ricetta; else ricetta_non_trovata">
+  <div class="container-ricetta">
+    <div class="container-image">
+      <div class="ricetta-image" [ngStyle]="{'background-image': 'url('+ ricetta.image +')'}"></div>
+    </div>
+    <div class="container-descrizione">
+      <h2 class="titolo-ricetta">{{ricetta.title}}</h2>
+      <p>{{ricetta.description}}</p>
+    </div>
+    <div class="row">
+      <strong>Difficoltá:</strong>
+      <img class="difficolta" [src]="percorsoStelline + ricetta.difficulty + '.png'" alt="">
+    </div>
+    <div>
+      data pubblicazione: {{ricetta.date}}
+    </div>
   </div>
 </div>
+
+<ng-template #ricetta_non_trovata>
+  <div id="ricetta_non_trovata">
+    <h2>Spiacenti ma la ricetta non é piú disponibile</h2>
+  </div>
+</ng-template>
