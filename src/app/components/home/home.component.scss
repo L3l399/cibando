@@ -1,3 +1,5 @@
+@import "src/styles/colors.scss";
+
 .container-titolo{
   h2{
     font-size: 35;
@@ -12,10 +14,16 @@
   }
 }
 
-
-
  .paragrafo{
   text-align: justify;
   color:  $primary-color-1;
   //text: 30px;//
+ }
+
+ .ultime-ricette{
+  margin-top: 50px;
+  h2{
+    margin-bottom: 20px;
+    text-align: center;
+  }
  }

@@ -14,7 +14,6 @@ const routes: Routes = [
     {path: '', pathMatch: 'full', component: RecipesListComponent}
   ]},
   {path: '**', redirectTo: 'home'} //se il percorso viene sbagliato dall'utente torna alla  home
-
 ];
 
 @NgModule({
