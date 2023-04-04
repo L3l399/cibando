@@ -1,0 +1,35 @@
+.image{
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 0 10px 10px 0 !important;
+}
+
+.sezione{
+  margin-top: 3%;
+}
+
+.help.is-danger{
+margin-top: -13px;
+color: red;
+font-size: 12px;
+font-weight: 700;
+margin: 3px;
+}
+
+input.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+
+input.ng-valid.ng-touched{
+  border: 1px solid rgb(255, 190, 190);
+}
+
+.check{
+  height: 50px;
+  width: 70%;
+  flex-direction: column;
+  margin-top: 4px;
+}

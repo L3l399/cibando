@@ -58,6 +58,16 @@ html, body { height: 100%; }
   width: 400px;
 }
 
+.btn-primary{
+  background-color: #8e210b!important;
+  border: none !important;
+}
+
+.p-password, .p-inputtext{
+  width: 100%!important;
+  border: none!important;
+  height: 20px !important;
+}
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
