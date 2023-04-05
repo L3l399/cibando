@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MaterialExampleModule } from 'src/material.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -23,6 +24,7 @@ import { RecipeCardComponent } from './shared/recipe-card/recipe-card.component'
 import { DetailComponent } from './components/recipes/detail/detail.component';
 import { RecipesListComponent } from './components/recipes/recipes-list/recipes-list.component';
 import { RegisterComponent } from './components/user/register/register.component';
+import { NewRecipeComponent } from './components/new-recipe/new-recipe.component';
 
 
 @NgModule({
@@ -36,11 +38,13 @@ import { RegisterComponent } from './components/user/register/register.component
     RecipeCardComponent,
     DetailComponent,
     RecipesListComponent,
-    RegisterComponent
+    RegisterComponent,
+    NewRecipeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MaterialExampleModule,
     NgbModule,

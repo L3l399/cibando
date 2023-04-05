@@ -1,5 +1,3 @@
-
-
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomValidator } from '../customValidator';
@@ -12,7 +10,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
+export class RegisterComponent  {
 
   constructor(
     private userService: UserService,

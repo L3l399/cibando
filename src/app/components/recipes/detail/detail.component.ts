@@ -23,8 +23,8 @@ export class DetailComponent implements OnInit  {
     }
 
   onGetRecipe():void{
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('_id'));// mi arriva una stringa e la trasformo in numero
-    // const id = Number(this.activatedRoute.snapshot.paramMap.get('id')); esempio se ho piú elemnti
+    const id = this.activatedRoute.snapshot.paramMap.get('_id');// mi arriva una stringa e la trasformo in numero
+    // const id = Number(this.activatedRoute.snapshot.paramMap.get('id')); //esempio se ho piú elemnti
 
     this.recipeService.getRecipe(id).subscribe({
       next: (res) =>{
@@ -39,6 +39,7 @@ export class DetailComponent implements OnInit  {
   //se abbimo necessitá di recuperare piú parametri utilizziamo questo modo
   onGetRecipe2():void {
     this.activatedRoute.params.subscribe((parametriUrl) => {
+
       const id = parametriUrl['_id'];
 
       this.recipeService.getRecipe(id).subscribe({

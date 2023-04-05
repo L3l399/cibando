@@ -17,8 +17,8 @@
         <p class="card-text">
           {{recipe.description | slice:0:250 }}...
         </p>
-        <a class="btn btn-primary" routerLink="dettaglio/{{recipe.title}}/{{recipe._id}}" *ngIf="!pag">Visualizza</a>
-        <a class="btn btn-primary" routerLink="/ricette/dettaglio/{{recipe.title}}/{{recipe._id}}" *ngIf="pag">Dettaglio</a>
+        <a class="btn btn-primary" routerLink="detail/{{recipe.title}}/{{recipe._id}}" *ngIf="!pag">Visualizza</a>
+        <a class="btn btn-primary" routerLink="/recipes/detail/{{recipe.title}}/{{recipe._id}}" *ngIf="pag">Dettaglio</a>
       </div>
     </div>
   </div>
