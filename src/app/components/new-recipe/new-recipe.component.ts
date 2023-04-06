@@ -1,5 +1,7 @@
+import { take } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from 'src/app/services/recipe.service';
+import { Recipe } from 'src/app/models/recipe.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import  { Router } from '@angular/router';
@@ -11,84 +13,55 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './new-recipe.component.html',
   styleUrls: ['./new-recipe.component.scss']
 })
-export class NewRecipeComponent implements OnInit {
+export class NewRecipeComponent {
 
-  title: string;
-  description: string;
-  image: string;
-  published: boolean;
-  difficulty: number;
-
-
-  constructor(
-    private recipeService: RecipeService,
-    private modalService: NgbModal,
-    private router: Router,
-  ){}
-
-  ngOnInit(): void {
-    this.prendiDatiRicetta();
-  }
+  ricettaInserita: any;
 
   form = new FormGroup({
     title: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
     image: new FormControl('',  Validators.required),
-    published: new FormControl('', Validators.required),
+    published: new FormControl(false),
     difficulty: new FormControl('1', [Validators.required, Validators.max(5), Validators.min(1)]),
   });
 
-  onSubmit(): void{
-    const recipe = {
-      title: this.form.value.title,
-      description: this.form.value.description,
-      image: this.form.value.image,
-      published: this.form.value.published,
-      difficulty: this.form.value.difficulty
+  constructor(
+    private recipeService: RecipeService,
+    private modalService: NgbModal,
+    private router: Router,
+    ){}
+
+    onSubmit(): void {
+      const recipe = this.form.value;
+      this.recipeService.insertRecipe(recipe).pipe(take(1)).subscribe({
+        next: (res) => {
+          console.log(res);
+          this.ricettaInserita = res;
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
+      this.recipeService.datiRicetta.next(recipe);
+      // this.router.navigate(['new-recipe'])
     }
-    this.recipeService.insertRecipe(recipe).subscribe(res =>{
-      console.log('response is', res)
-    });
-    this.recipeService.datiRicetta.next(recipe);
-    // this.router.navigate(['new-recipe'])
-  }
 
-  prendiDatiRicetta(){
-    this.recipeService.datiRicetta.subscribe((res: any) => {
-      this.title = res.title;
-      this.description = res.description;
-      this.image = res.image;
-      this.published = res.published;
-      this.difficulty = res.difficulty;
-    })
-  }
+    onClose(){
+      this.ricettaInserita = '';
+      this.router.navigate(['recipes'])
+    }
 
-  svuotaCampi(){
-    this.form.value.title = '',
-    this.form.value.description = '',
-    this.form.value.image = '',
-    // this.form.value.published = false,
-    this.form.value.difficulty = null
-  }
+    onNewRecipe(){
+      this.ricettaInserita = '';
+      this.form.patchValue({
+        title : '',
+        description : '',
+        image : '',
+        published : false,
+        difficulty : null,
+      })
+    }
 
-  closeModal(){
-    this.title = '';
-    this.description = '';
-    this.image = '';
-    this.published = false;
-    this.difficulty = null;
   }
-
-  open(content: any, titolo?: string){
-    let title = titolo;
-    this.modalService.open(content, {ariaLabelledBy: 'modale servizi', size: 'lg', centered: true}).result.then((res) => {
-      this.svuotaCampi();
-      // this.router.navigate(['recipes'])
-      console.log('azione da eseguire' + titolo);
-    }).catch((res) => {
-      console.log('nessuna azione da eseguire');
-    })
-  }
-}
 
 

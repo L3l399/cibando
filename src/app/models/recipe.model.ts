@@ -1,9 +1,9 @@
 export interface Recipe{
-  _id: number;
+  _id?: number;
   title: string;
   image: string;
   description: string;
   difficulty:  number;
-  date: string;
-  published: boolean;
+  date?: string;
+  published?: boolean;
 }

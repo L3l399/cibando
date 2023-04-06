@@ -26,8 +26,7 @@ export class RecipeService {
     return this.http.get<Recipe>(`${this.apiBaseUrl}/${id}`)
   }
 
-  insertRecipe(recipe){
-    return this.http.post(`${this.apiBaseUrl}/`, recipe)
+  insertRecipe(recipe: any): Observable<any> {
+    return this.http.post<any>(`${this.apiBaseUrl}/`, recipe)
   }
-
 }
