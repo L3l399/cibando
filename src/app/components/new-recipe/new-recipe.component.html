@@ -26,7 +26,7 @@
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
 
-                        <textarea name="description" id="description" cols="30" rows="2" class="form-control" placeholder="description"  formControlName="description"></textarea>
+                        <ckeditor [editor]="Editor" [config]="editorConfig" name="description" id="description" cols="30" rows="2" class="descrizioneRicetta" placeholder="description"  formControlName="description"></ckeditor>
                         <label class="form-label" for="description">Aggiungi descrizione</label>
                         </div>
                       </div>
@@ -70,7 +70,7 @@
                       </div>
 
                       <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        <button type="submit" class="btn btn-primary btn-lg" [disabled]="!form.valid">Aggiungi</button>
+                        <button type="submit" class="btn btn-primary btn-lg" [disabled]="!form.valid" (click)="open(modaleRicetta)">Aggiungi</button>
                       </div>
 
                     </form>
@@ -89,7 +89,8 @@
   </div>
 
 
-  <ng-template [ngIf]="ricettaInserita" let-modal>
+  <ng-template #modaleRicetta let-modal>
+
     <div class="modal-header">
       <h3 class="modal-title">Grazie per aver inserito la ricetta, ecco il riepilogo:</h3>
       <button type="button" class="btn-close" aria-label="close" (click)="modal.dismiss()"></button>
@@ -100,7 +101,7 @@
           <div class="testo-riepilogo">
             <ul>
               <li>Titolo: {{ricettaInserita.title}}</li>
-              <li>Descrizione: {{ricettaInserita.description}}</li>
+              <li>Descrizione: <span [innerHTML]="ricettaInserita.description"></span></li>
               <li>Difficoltá : {{ricettaInserita.difficulty}}</li>
               <li>Pubblicato: {{ricettaInserita.published}}</li>
             </ul>
@@ -112,8 +113,9 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-modal" (click)="onClose()">CHIUDI</button>
-      <button type="button" class="btn btn-modal" (click)="onNewRecipe()" ngbAutoFocus>AZIONE</button>
+      <button type="button" class="btn btn-modal" (click)="modal.dismiss()">Chiudi</button>
+      <button type="button" class="btn btn-modal" (click)="modal.close()" ngbAutoFocus>Nuova Ricetta</button>
     </div>
+
   </ng-template>
 

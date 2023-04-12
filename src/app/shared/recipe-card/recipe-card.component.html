@@ -1,13 +1,14 @@
+<div ></div>
 <div class="container-cards">
   <div class="container-pagination" *ngIf="pag!='home'">
     <div class="info-lista-ricette">
-      <strong>{{ricettePerPagina}}</strong> Ricette su un totale <strong>{{ricetteTotali}}</strong> Ricette, pagina corrente: <strong>{{page}}</strong>
+      <strong>{{ricettePerPagina}}</strong> Ricette su un totale <strong>{{ricette.length}}</strong> Ricette, pagina corrente: <strong>{{page}}</strong>
     </div>
 
-    <p-paginator (onPageChange)="paginate($event)" [rows]="ricettePerPagina" [totalRecords]="ricetteTotali" (rowsPerPageOptionsChange)="ricettePerPagina"></p-paginator>
+    <p-paginator (onPageChange)="paginate($event)" [rows]="ricettePerPagina" [totalRecords]="ricette.length" (rowsPerPageOptionsChange)="ricettePerPagina"></p-paginator>
 
   </div>
-  <div class="card-container" id="#main-container" *ngFor="let recipe of recipes | slice: (page * ricettePerPagina) - ricettePerPagina : page * ricettePerPagina">
+  <div class="card-container" id="#main-container" *ngFor="let recipe of recipes$ | async | slice: (page * ricettePerPagina) - ricettePerPagina : page * ricettePerPagina">
     <div class="card">
 
       <div class="card-image" [ngStyle]="{'background-image': 'url('+ recipe.image +')'}" (click)="inviaTitolo(recipe.title)"></div>
@@ -15,13 +16,16 @@
       <div class="card-body">
         <h5 class="card-title">{{recipe.title}}</h5>
         <p class="card-text">
-          {{recipe.description | slice:0:250 }}...
+          <span [innerHTML]="recipe.description | slice:0:250 ">...</span>
         </p>
         <a class="btn btn-primary" routerLink="detail/{{recipe.title}}/{{recipe._id}}" *ngIf="!pag">Visualizza</a>
         <a class="btn btn-primary" routerLink="/recipes/detail/{{recipe.title}}/{{recipe._id}}" *ngIf="pag">Dettaglio</a>
+        <a class="btn btn-primary delete" *ngIf="ruolo === 'admin'" >Elimina</a>
       </div>
     </div>
   </div>
 </div>
+
+<p-toast position="top-right"></p-toast>
 
 

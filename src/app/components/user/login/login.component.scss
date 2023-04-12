@@ -1,0 +1,67 @@
+@import '../../../../styles/colors.scss';
+
+form{
+  width: 30%;
+  height: 50%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 35%;
+  border: 1px black solid;
+  border-radius: 10px;
+  position: relative;
+  background-color: $primary-color-1;
+
+  .container-campi{
+    // margin: 20px ;
+    position: relative;
+    justify-items: center;
+    background-color: $primary-color-1;
+
+    .campi{
+      position: relative;
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin: 5% 5% 5% 10%;
+      label{
+        font-size: 20px;
+        color: white;
+      }
+    }
+
+
+    .bottone{
+      position: relative;
+      display: flex;
+      justify-content: center;
+      width: auto;
+      margin-top: 30px;
+    }
+
+    button{
+      position: relative;
+      width: 25%;
+      margin-top: 10%;
+      // margin: 5% 5% 5% 37.5%;
+      border: solid white 3px;
+      border-radius: 5px;
+      height: 35px;
+      color: white;
+      background-color: #8e210b;
+    }
+
+    .alert{
+      text-align: center;
+      color: white;
+    }
+
+  }
+
+
+}
+p{
+  text-align: center;
+}
+
+

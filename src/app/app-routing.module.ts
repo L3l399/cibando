@@ -7,6 +7,10 @@ import { RecipesListComponent } from './components/recipes/recipes-list/recipes-
 import { DetailComponent } from './components/recipes/detail/detail.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { NewRecipeComponent } from './components/new-recipe/new-recipe.component';
+import { EsempioCombineComponent } from './components/esempio-combine/esempio-combine.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
+import { LoggedInGuard } from './logged-in.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},// se il percorso inserito é vuoto torna alla home
@@ -17,6 +21,9 @@ const routes: Routes = [
   ]},
   {path: 'new-recipe', component: NewRecipeComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'profile', component: ProfileComponent, canActivate: [LoggedInGuard]},
+  {path: 'combine', component: EsempioCombineComponent},
   {path: '**', redirectTo: 'home'} //se il percorso viene sbagliato dall'utente torna alla  home
 ];
 

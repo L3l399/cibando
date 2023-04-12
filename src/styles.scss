@@ -81,5 +81,22 @@ html, body { height: 100%; }
   box-shadow: 0 0 0 0.2rem #8e210b!important;
 }
 
+// ckeditor
+.descrizioneRicetta .ck-editor__editable{
+  min-height: 200px!important;
+  max-height: 200px!important;
+  max-width: 380px!important;
+}
+
+.noteRegistrati .ck-editor__editable{
+  min-height: 200px!important;
+  max-height: 200px!important;
+  max-width: 380px!important;
+}
+
+.ck.ck-sticky-panel__content{
+  max-width: 380px!important;
+}
+
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';

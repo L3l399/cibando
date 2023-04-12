@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
 import { PaginatorModule } from 'primeng/paginator';
+import { ToastModule } from 'primeng/toast';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
@@ -26,6 +28,9 @@ import { RecipesListComponent } from './components/recipes/recipes-list/recipes-
 import { RegisterComponent } from './components/user/register/register.component';
 import { NewRecipeComponent } from './components/new-recipe/new-recipe.component';
 import { ChangeColorDirective } from './directives/change-color.directive';
+import { EsempioCombineComponent } from './components/esempio-combine/esempio-combine.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
 
 
 @NgModule({
@@ -41,7 +46,10 @@ import { ChangeColorDirective } from './directives/change-color.directive';
     RecipesListComponent,
     RegisterComponent,
     NewRecipeComponent,
-    ChangeColorDirective
+    ChangeColorDirective,
+    EsempioCombineComponent,
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +63,9 @@ import { ChangeColorDirective } from './directives/change-color.directive';
     ReactiveFormsModule,
     PasswordModule,
     DividerModule,
-    PaginatorModule
+    PaginatorModule,
+    ToastModule,
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
