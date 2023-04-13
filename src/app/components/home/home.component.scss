@@ -2,15 +2,17 @@
 
 .container-titolo{
   h2{
-    font-size: 35;
+    font-size: 100;
     color: $primary-color-1;
     font-family: 'Homemade Apple', cursive;
+    font-weight: 500;
     margin-bottom: 30 px;
-    margin-left: 30 px;
+    margin-left: 100 px;
+    cursor: pointer
   }
 
   .paragrafo {
-    font-size: 10px;
+    font-size: 20px;
   }
 }
 
@@ -52,7 +54,7 @@ div#container-utente {
       font-size: 23px!important;
       text-align: center;
     }
- 
+
     ul {
       height: 90px;
       margin-top: 33px;

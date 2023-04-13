@@ -16,6 +16,13 @@
 //   min-width:max-content;
 // }
 
+.search{
+  width: max-content;
+  height: max-content;
+  background-color: transparent;
+  border: none;
+}
+
 .user-loggato{
   display: flex;
   flex-direction: row;

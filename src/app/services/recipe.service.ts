@@ -10,6 +10,7 @@ import { ReplaySubject } from 'rxjs';
 })
 export class RecipeService {
 
+  testoCercato = new ReplaySubject;
   datiRicetta = new ReplaySubject;
   apiBaseUrl = 'api/recipes';
 
@@ -33,5 +34,9 @@ export class RecipeService {
 
   insertRecipe(recipe: any): Observable<any> {
     return this.http.post<any>(`${this.apiBaseUrl}/`, recipe)
+  }
+
+  findRecipes(text: string): Observable<any>{
+    return this.http.get<any>(`${this.apiBaseUrl}/cerca/${text}` )
   }
 }

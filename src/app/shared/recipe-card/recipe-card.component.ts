@@ -22,13 +22,43 @@ export class RecipeCardComponent implements OnDestroy, OnInit {
   page = 1;
   ricettePerPagina = 4;
 
-  recipes$: Observable<Recipe[]> = this.recipeService.getRecipes().pipe(
-    map((response) => response.filter(ricetteFiltrate => ricetteFiltrate.difficulty < 3)),
-    map(res => this.ricette = res),
-  );
-  ricette: Recipe[];
+    ricette: Recipe[];
 
   ruolo: any;
+  ricercato: any;
+
+  recipes$ = this.recipeService.getRecipes().pipe(
+    map(res => {
+      if(this.pag === 'ricerca') {
+        this.recipeService.testoCercato.subscribe({
+          next: (res) => {
+            this.ricercato = res;
+            if(this.ricercato) {
+              this.recipeService.findRecipes(this.ricercato).subscribe({
+                next: (res) => {
+                  this.ricette = res;
+                  console.log(res);
+                },
+                error: (err) => {
+                  console.log(err);
+                }
+              })
+            }
+          },
+          error: (err) => {
+            console.error(err);
+          }
+        });
+      } else {
+        this.ricette = res;
+        if(res) {
+          this.messageService.add({severity: 'success', summary:'Completato', detail: 'Ricette caricate correttamente', life: 3000})
+        }
+      }
+    }),
+  );
+
+
 
   constructor(
     private recipeService: RecipeService,
@@ -54,6 +84,8 @@ export class RecipeCardComponent implements OnDestroy, OnInit {
       }
     }
 
+
+
     inviaTitolo(titolo: string){
       this.messaggio.emit(titolo);
     }
@@ -62,6 +94,11 @@ export class RecipeCardComponent implements OnDestroy, OnInit {
       event.page = event.page + 1;
       this.page = event.page;
     }
+
+
+
+
+
 
     // prendiRicette(){
     //   this.recipeService.getRecipes()

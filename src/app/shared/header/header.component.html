@@ -33,12 +33,19 @@
       <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
 
-          <fa-icon [icon]="faUser" class="align-self-center nav-icon"></fa-icon>
+          <li class="nav-item">
+            <input class=" me-5" type="search" placeholder="Cerca" aria-label="cerca" [(ngModel)]="ricerca" (keyup.enter)="risultato()">
+            <button class="search" (click)="risultato()">
+              <fa-icon [icon]="faMagnifyingGlass" class="align-self-center nav-icon" ></fa-icon>
+            </button>
+          </li>
+
+          <fa-icon [icon]="faUser" class="align-self-center nav-icon ms-5"></fa-icon>
           <li class="nav-item user" *ngIf="!authService.isLogged()">
-            <a class="nav-link" routerLink="login">Accedi</a>
+            <a class="nav-link" routerLink="/user/login">Accedi</a>
           </li>
           <li class="nav-item user user-loggato" *ngIf="authService.isLogged()">
-            <a class="nav-link" routerLink="profile">Ciao {{user.name}}</a>
+            <a class="nav-link" routerLink="/user/profile">Ciao {{user.name}}</a>
             <a class="nav-link" (click)="logout()"> - ESCI</a>
           </li>
         </ul>
