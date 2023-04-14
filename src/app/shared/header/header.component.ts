@@ -26,7 +26,7 @@ export class HeaderComponent implements DoCheck {
 
   user: any;
   ricerca: string = "";
-  rottaCorrente = `/recipes/search/${this.ricerca}`;
+
 
   constructor(private router: Router, public authService: AuthService,private recipeService: RecipeService){}
 
@@ -56,3 +56,4 @@ risultato() {
   }
 
 }
+

@@ -1,8 +1,11 @@
 <div id="main-container">
   <div class="container-titolo-ricette">
     <h2>le nostre ricette</h2>
-    <div *ngIf="titoloRicetta" class="titolo-ricetta">{{titoloRicetta}}
-    </div>
+    <!-- <div *ngIf="titoloRicetta" class="titolo-ricetta">{{titoloRicetta}}
+    </div> -->
   </div>
-  <app-recipe-card (messaggio)="riceviMessaggio($event)"></app-recipe-card>
+  <app-recipe-card (messaggio)="riceviMessaggio($event)">
+    <div>Ecco il contenuto passato dal padre</div>
+    <p secondaIncursione>ricetta cliccata: {{titoloRicetta}}</p>
+  </app-recipe-card>
 </div>

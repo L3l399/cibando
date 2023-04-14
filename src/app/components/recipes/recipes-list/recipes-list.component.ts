@@ -26,6 +26,11 @@ export class RecipesListComponent implements OnInit{
   }
 
   riceviMessaggio(e: any){
-    this.titoloRicetta == e ? this.titoloRicetta = '' : this.titoloRicetta = e;
+    if(this.titoloRicetta == e){
+      this.titoloRicetta = ''
+    } else{
+      this.titoloRicetta = e
+    }
   }
+
 }
